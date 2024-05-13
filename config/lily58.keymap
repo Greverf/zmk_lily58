@@ -42,7 +42,7 @@
 &kp F1  &kp F2             &kp F3             &kp F4     &kp F5         &kp F6                       &kp F7        &kp F8    &kp F9    &kp F10    &kp F11   &kp F12
 &trans   &kp LC(LS(LG(T)))  &kp LC(LA(SPACE))  &kp LC(F)  &kp LG(LS(S))  &kp K_APP                    &kp PG_UP     &kp HOME  &kp UP    &kp END    &kp CAPS  &trans
 &trans   &kp RALT           &kp LGUI           &kp LSHFT  &kp LCTRL      &kp RALT                     &kp PG_DN     &kp LEFT  &kp DOWN  &kp RIGHT  &kp DEL   &trans
-&trans     &kp LC(Z) &kp LC(X) &kp LC(C) &kp TAP       &kp LC(V)    &trans   &trans    &kp LC(BSPC)    &kp BSPC &kp KP_PLUS     &kp LBRC  &kp RBRC  &kp PIPE
+&trans   &kp LC(Z) &kp LC(X) &kp LC(C) &kp TAP       &kp LC(V)    &trans   &trans    &trans   &trans &kp KP_PLUS     &kp LBRC  &kp RBRC  &kp PIPE
                                               &trans            &trans       &trans    &trans   &kp RET    &trans    &trans    &trans
             >;
 
