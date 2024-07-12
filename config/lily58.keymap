@@ -5,9 +5,10 @@
  */
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/outputs.h>
 
 / {
 
@@ -32,7 +33,7 @@
 // | SHIFT |  Z  |  X  |  C   |  V   |  B   |   "["  |  |  "]"  |  N   |  M    |  ,    |  .   |   /   | SHIFT |
 //                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
             bindings = <
-&bt BT_CLR_ALL    &kp N1    &kp N2     &kp N3    &kp N4  &kp N5                      &kp N6     &kp N7  &kp N8    &kp N9  &kp N0  &kp INS
+&none    &kp N1    &kp N2     &kp N3    &kp N4  &kp N5                      &kp N6     &kp N7  &kp N8    &kp N9  &kp N0  &kp INS
 &kp BSLH  &kp SQT   &kp COMMA  &kp DOT   &kp P   &kp Y                       &kp F      &kp G   &kp C     &kp R   &kp L   &kp FSLH
 &kp EQUAL &kp A     &kp O      &kp E     &kp U   &kp I                       &kp D      &kp H   &kp T     &kp N   &kp S   &kp MINUS
 &kp GRAVE &kp SEMI  &kp Q      &kp J     &kp K   &kp X  &kp LBKT   &kp RBKT  &kp B      &kp M   &kp W     &kp V   &kp Z   &none
@@ -44,7 +45,7 @@
 
         lower_layer {
 // ------------------------------------------------------------------------------------------------------------
-// | &bt btBTCLR | BT1 | BT2 |  BT3 |  BT4 |  BT5 |                   |      |       |       |      |       |       |
+// | BTCLR | BT1 | BT2 |  BT3 |  BT4 |  BT5 |                   |      |       |       |      |       |       |
 // |  F1   |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  F7  |  F8   |  F9   |  F10 |  F11  |  F12  |
 // |   `   |  !  |  @  |  #   |  $   |  %   |                   |  ^   |  &    |  *    |  (   |   )   |   ~   |
 // |       |     |     |      |      |      |        |  |       |      |  _    |  +    |  {   |   }   |  "|"  |
@@ -53,7 +54,7 @@
 &kp F11    &kp F1         &kp F2              &kp F3     &kp F4         &kp F5                   &kp F6        &kp F7    &kp F8    &kp F9     &kp F10   &kp F12
 &none      &kp LS(LG(T))  &kp LA(SPACE)   &kp LC(F)  &kp LG(LS(S))  &kp LC(Y)                &kp PG_UP     &kp HOME  &kp UP    &kp END    &kp CAPS  &none
 &kp ESC    &kp LGUI       &kp LALT            &kp LSHFT  &kp LCTRL      &kp RALT                 &kp PG_DN     &kp LEFT  &kp DOWN  &kp RIGHT  &kp DEL   &none
-&none      &kp LC(Z)      &kp LC(X)           &kp LC(C)  &kp TAB        &td_v      &none  &none  &kp LC(BSPC)  &kp BSPC  &kp INS   &kp K_APP  &none     &bt BT_CLR 
+&none      &kp LC(Z)      &kp LC(X)           &kp LC(C)  &kp TAB        &td_v      &none  &none  &kp LC(BSPC)  &kp BSPC  &kp INS   &kp K_APP  &none     &none
                           &none               &none      &trans         &none                    &kp RET       &mo 3     &none     &none
             >;
 
@@ -86,11 +87,11 @@
 // |   F7  |  F8 |  F9 |  F10 |  F11 |  F12 |        |  |       |  +   |   -   |   =   |  [   |   ]   |   \   |
 //                     |      |      |      |        |  |       |      |       |       |
             bindings = <
-&none &none  &none  &none  &none  &none                          &none  &none        &none     &none        &none  &none
-&none &bt BT_CLR &none  &none  &none  &none                      &none  &kp K_PWR    &kp K_SLEEP     &kp K_LOCK        &none  &none
-&none &none  &none  &none  &none  &none                          &none  &kp C_PREV   &kp C_PP  &kp C_NEXT   &none  &none
-&none &none  &none  &none  &none  &none      &none      &none    &none  &kp C_VOL_DN &kp C_EJECT     &kp C_VOL_UP &none  &none
-             &none  &none  &trans &none                          &none  &trans        &none    &none
+&none &none  &none  &none  &none  &none                                                          &none  &none        &none     &none        &none  &none
+&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                      &none  &kp K_PWR    &kp K_SLEEP     &kp K_LOCK        &none  &none
+&out OUT_BLE &none  &none  &none  &none  &none                                                          &none  &kp C_PREV   &kp C_PP  &kp C_NEXT   &none  &none
+&out OUT_USB &none  &none  &none  &none  &none      &none                                      &none    &none  &kp C_VOL_DN &kp C_EJECT     &kp C_VOL_UP &none  &none
+             &none  &none  &trans &none                                                          &none  &trans        &none    &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
